@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/config/config.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  await Environment.initEnvironment();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: AppTheme().getTheme(),
       title: 'App',
-      home: Scaffold(
+      home: const Scaffold(
         body: Center(
           child: Text('Hello World'),
         ),
